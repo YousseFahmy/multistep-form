@@ -1,0 +1,43 @@
+<mat-vertical-stepper [linear]="false" #stepper animationDuration="1000">
+  <mat-step [stepControl]="form.at(0)">
+    <form [formGroup]="form.at(0)">
+      <ng-template matStepLabel>First Name</ng-template>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="First Name"
+          formControlName="firstName"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="form.at(1)">
+    <form [formGroup]="form.at(1)">
+      <ng-template matStepLabel>Last Name</ng-template>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Last Name"
+          formControlName="lastName"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    You are now done. I did nothing with your data.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
